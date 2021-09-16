@@ -1,0 +1,3 @@
+#!/media/stepan/for_linux_extra_/cft_testtask/venv/bin/python3
+from numba.pycc import main
+main()

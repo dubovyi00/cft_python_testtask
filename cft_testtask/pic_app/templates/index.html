@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Analysis</title>
+</head>
+<body>
+    <form method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div align="center">
+		<h3>Анализ пикселей</h3>
+		{{ form.as_p }}
+		<button type="submit">Загрузка файла</button>
+		
+		<h3>Как пользоваться этим приложением?</h3>
+		<ul>
+			<li>Данный веб-сервис позволит вам посчитать количество пикселей <br>заданного цвета</li>
+			<li>Режим "Чёрные vs белые" подсчитает количество белых и чёрных <br>пикселей, а также сравнит их количество</li>
+			<li>Режим "Цвет по HEX-коду" найдёт количество пикселей по <br>заданному вами цвету</li>
+		</ul>
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		  <script>
+		    if ($('#id_mode').val() === 'WB'){
+			  $('#id_color').hide();
+			  $('label[for="id_color"]').hide();
+			  
+		      } else {
+			  $('#id_color').show();
+			  $('label[for="id_color"]').show();
+		      }
+		    $('#id_mode').change(function () {
+		      var optionSelected = $("option:selected", this);
+		      var valueSelected = $(this).val();
+		      console.log(valueSelected);
+		      if (valueSelected === 'WB'){
+			  $('#id_color').hide();
+			  $('label[for="id_color"]').hide();
+			  
+		      } else {
+			  $('#id_color').show();
+			  $('label[for="id_color"]').show();
+		      }
+		    });
+		  </script>
+
+        </div>
+    </form>
+</body>
+</html>
