@@ -5,7 +5,7 @@ from .forms import *
 import requests
 
 
-def hotel_image_view(request):
+def main_view(request):
   
 	if request.method == 'POST':
 		form = ImageForm(request.POST, request.FILES)
